@@ -1,0 +1,93 @@
+#set( $packagePath = $groupId.replace(".", "/") )
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>${groupId}</groupId>
+    <artifactId>${artifactId}</artifactId>
+    <version>${version}</version>
+    <packaging>jar</packaging>
+
+    <name>benchmark-tutorial</name>
+    <url>http://everbeen.cz</url>
+
+
+    <properties>
+        <!-- BEEN DEPENDENCIES -->
+        <been.version>3.0.0-SNAPSHOT</been.version>
+        <bpk-maven-plugin.version>1.0.0-SNAPSHOT</bpk-maven-plugin.version>
+
+        <!-- 3RD PARTY DEPENDENCIES -->
+        <maven-compiler-plugin.version>2.5.1</maven-compiler-plugin.version>
+
+        <!-- SOURCE LEVEL CONTROL -->
+        <java-source.version>1.7</java-source.version>
+        <java-target.version>1.7</java-target.version>
+
+        <!-- ENCODING -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>cz.cuni.mff.d3s.been</groupId>
+            <artifactId>task-api</artifactId>
+            <version>${been.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cz.cuni.mff.d3s.been</groupId>
+            <artifactId>benchmark-api</artifactId>
+            <version>${been.version}</version>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${java-source.version}</source>
+                    <target>${java-target.version}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>cz.cuni.mff.d3s.been</groupId>
+                <artifactId>bpk-maven-plugin</artifactId>
+                <version>${bpk-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>buildpackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <taskDescriptors>
+                        <param>src/main/resources/${packagePath}/HelloBenchmark.td.xml</param>
+                        <param>src/main/resources/${packagePath}/HelloTask.td.xml</param>
+                    </taskDescriptors>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>everbeen.cz-plugins-snapshots</id>
+            <url>http://everbeen.cz/artifactory/plugins-snapshot-local</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <repositories>
+        <repository>
+            <id>everbeen.cz-snapshots</id>
+            <url>http://everbeen.cz/artifactory/libs-snapshot-local</url>
+        </repository>
+    </repositories>
+</project>

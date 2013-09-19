@@ -1,0 +1,19 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0"?>
+<taskDescriptor xmlns="http://been.d3s.mff.cuni.cz/task-descriptor"
+                groupId="${groupId}" bpkId="${artifactId}" version="${version}"
+                name="helloBenchmark" type="benchmark">
+
+	<java>
+		<mainClass>${package}.HelloBenchmark</mainClass>
+	</java>
+
+
+    <properties>
+        <property name="task.log.level" description="Log level of the task">TRACE</property>
+        <property name="names" description="names of the persons delimited by ','">Been, WillBEEN, EverBEEN</property>
+    </properties>
+
+</taskDescriptor>

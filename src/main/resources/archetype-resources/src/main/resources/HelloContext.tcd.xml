@@ -1,0 +1,34 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0"?>
+<taskContextDescriptor xmlns="http://been.d3s.mff.cuni.cz/task-context-descriptor"
+                       xmlns:td="http://been.d3s.mff.cuni.cz/task-descriptor"
+                       name="helloContext">
+
+    <contextDescription>Hello Context</contextDescription>
+
+    <task>
+        <name>helloTaskFromInnerTemplate</name>
+        <descriptor>
+            <fromTemplate>helloTaskTemplate</fromTemplate>
+        </descriptor>
+    </task>
+
+    <templates>
+        <template name="helloTaskTemplate">
+            <td:taskDescriptor xmlns="http://been.d3s.mff.cuni.cz/task-descriptor"
+                               groupId="${groupId}" bpkId="${artifactId}" version="${version}"
+                               name="helloTask" type="task">
+                <td:properties>
+                    <td:property name="pauseBetweenWords">3</td:property>
+                </td:properties>
+                <td:java>
+                    <td:useTaskRunner>true</td:useTaskRunner>
+                    <td:mainClass>${groupId}.HelloTask</td:mainClass>
+                </td:java>
+            </td:taskDescriptor>
+        </template>
+    </templates>
+
+</taskContextDescriptor>
