@@ -28,5 +28,13 @@
     </pluginManagement>
   </build>
 
+  <distributionManagement>
+    <repository>
+      <id>everbeen.cz-snapshots</id>
+      <name>EverBEEN snapshot artifactory</name>
+      <url>http://everbeen.cz/artifactory/plugins-snapshot-local</url>
+    </repository>
+  </distributionManagement>
+
   <url>http://everbeen.cz</url>
 </project>
