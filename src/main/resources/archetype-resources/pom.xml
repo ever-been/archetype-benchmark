@@ -69,8 +69,7 @@
                 </executions>
                 <configuration>
                     <taskDescriptors>
-                        <param>src/main/resources/${packagePath}/HelloBenchmark.td.xml</param>
-                        <param>src/main/resources/${packagePath}/HelloTask.td.xml</param>
+                        <param>src/main/resources/${packagePath}/ExampleBenchmark.td.xml</param>
                     </taskDescriptors>
                 </configuration>
             </plugin>

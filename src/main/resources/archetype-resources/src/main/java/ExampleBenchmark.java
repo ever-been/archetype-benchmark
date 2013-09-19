@@ -12,35 +12,30 @@ import cz.cuni.mff.d3s.been.benchmarkapi.ContextBuilder;
 import cz.cuni.mff.d3s.been.core.task.TaskContextDescriptor;
 import cz.cuni.mff.d3s.been.core.task.TaskContextState;
 
-public class HelloBenchmark extends Benchmark
-{
-
-    private static final Logger log = LoggerFactory.getLogger(HelloBenchmark.class);
+public class ExampleBenchmark extends Benchmark {
 
     int runNumber;
 
     @Override
     public TaskContextDescriptor generateTaskContext() throws BenchmarkException {
-        String[] names = this.getTaskProperty("names", "EverBEEN").split(",");
-        if (runNumber >= names.length) {
+        if (runNumber >= 10) {
             return null;
         }
 
-        ContextBuilder contextBuilder = ContextBuilder.createFromResource(this.getClass(), "HelloContext.tcd.xml");
-        contextBuilder.setProperty("name", names[runNumber]);
-        runNumber++;
+	    runNumber++;
 
+        ContextBuilder contextBuilder = ContextBuilder.createFromResource(this.getClass(), "ContextTemplate.tcd.xml");
         return contextBuilder.build();
     }
 
     @Override
     public void onResubmit() {
-        log.info("Task resubmitted");
+
     }
 
     @Override
     public void onTaskContextFinished(String taskContextId, TaskContextState state) {
-        log.info("Task context finished");
+
     }
 
 }

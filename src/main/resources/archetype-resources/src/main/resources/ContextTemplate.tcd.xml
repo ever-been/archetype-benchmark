@@ -1,0 +1,22 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0"?>
+<taskContextDescriptor xmlns="http://been.d3s.mff.cuni.cz/task-context-descriptor"
+                       xmlns:td="http://been.d3s.mff.cuni.cz/task-descriptor"
+                       name="example-context">
+
+    <task>
+        <name>example-task</name>
+        <descriptor>
+	        <td:taskDescriptor xmlns="http://been.d3s.mff.cuni.cz/task-descriptor"
+	                           groupId="${groupId}" bpkId="${artifactId}" version="${version}"
+	                           name="example-task" type="task">
+		        <td:java>
+			        <td:mainClass>${groupId}.ExampleTask</td:mainClass>
+		        </td:java>
+	        </td:taskDescriptor>
+        </descriptor>
+    </task>
+
+</taskContextDescriptor>

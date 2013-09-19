@@ -13,9 +13,8 @@
     <fileSet filtered="true" packaged="true" encoding="UTF-8">
       <directory>src/main/resources</directory>
       <includes>
-          <include>HelloBenchmark.td.xml</include>
-          <include>HelloTask.td.xml</include>
-          <include>HelloContext.tcd.xml</include>
+          <include>ExampleBenchmark.td.xml</include>
+          <include>ContextTemplate.tcd.xml</include>
       </includes>
     </fileSet>
   </fileSets>

@@ -1,4 +1,4 @@
 archetype-benchmark
 ===================
 
-Maven Archetype for EverBEEN benchamrk
+Maven Archetype for EverBEEN benchmark
